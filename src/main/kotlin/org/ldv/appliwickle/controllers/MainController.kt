@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class MainController {
-    @GetMapping("/appli-wickle")
+    @GetMapping("/wickle")
     fun home(): String {
         return "index"
 
@@ -17,7 +17,7 @@ class MainController {
 
     @GetMapping("/wickle/contact")
     fun contact(): String {
-        return "contact"
+        return "pageVisiteur/contact"
     }
 
     /**
@@ -25,7 +25,7 @@ class MainController {
      */
     @GetMapping("/wickle/inscription")
     fun inscription(): String {
-        return "inscription"
+        return "pageVisiteur/inscription"
     }
 
     /**
@@ -41,7 +41,7 @@ class MainController {
      */
     @GetMapping("/wickle/produits")
     fun produits(): String {
-        return "produits"
+        return "pageVisiteur/produits"
     }
 
     /**
@@ -49,7 +49,7 @@ class MainController {
      */
     @GetMapping("/wickle/rgpd")
     fun rgpd(): String {
-        return "rgpd"
+        return "pageVisiteur/rgpd"
     }
 
     /**
@@ -65,7 +65,7 @@ class MainController {
      */
     @GetMapping("/wickle/homme")
     fun homme(): String {
-        return "produits"  // Réutilise la page produits
+        return "pageVisiteur/produits"  // Réutilise la page produits
     }
 
     /**
@@ -73,7 +73,7 @@ class MainController {
      */
     @GetMapping("/wickle/femme")
     fun femme(): String {
-        return "produits"
+        return "pageVisiteur/produits"
     }
 
     /**
@@ -81,6 +81,16 @@ class MainController {
      */
     @GetMapping("/wickle/enfant")
     fun enfant(): String {
-        return "produits"
+        return "pageVisiteur/produits"
+    }
+
+    @GetMapping("/wickle/comment-ca-marche")
+    fun marche(): String {
+        return "pageVisiteur/comment-ca-marche"
+    }
+
+    @GetMapping("/wickle/recherche")
+    fun recherche(): String {
+        return "pageVisiteur/recherche"
     }
 }
