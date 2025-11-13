@@ -15,17 +15,17 @@ class MainController {
         return "pageVisiteur/a-propos"
     }
 
-    @GetMapping("/appli-wickle/Contact")
+    @GetMapping("/appli-wickle/contact")
     fun contact(): String {
-        return "pageVisiteur/Contact"
+        return "contact"
     }
 
     /**
      * Page Inscription
      */
-    @GetMapping("/appli-wickle/Inscription")
+    @GetMapping("/appli-wickle/inscription")
     fun inscription(): String {
-        return "pageVisiteur/Inscription"
+        return "inscription"
     }
 
     /**
@@ -39,17 +39,17 @@ class MainController {
     /**
      * Page Liste des produits
      */
-    @GetMapping("/appli-wickle/Produits")
+    @GetMapping("/appli-wickle/produits")
     fun produits(): String {
-        return "pageVisiteur/Produits"
+        return "produits"
     }
 
     /**
      * Page RGPD
      */
-    @GetMapping("/appli-wickle/RGPD")
+    @GetMapping("/appli-wickle/rgpd")
     fun rgpd(): String {
-        return "pageVisiteur/RGPD"
+        return "rgpd"
     }
 
     /**
@@ -65,7 +65,7 @@ class MainController {
      */
     @GetMapping("/wickle/homme")
     fun homme(): String {
-        return "pageVisiteur/Produits"  // Réutilise la page produits
+        return "produits"  // Réutilise la page produits
     }
 
     /**
@@ -73,7 +73,7 @@ class MainController {
      */
     @GetMapping("/wickle/femme")
     fun femme(): String {
-        return "pageVisiteur/Produits"
+        return "produits"
     }
 
     /**
@@ -81,6 +81,6 @@ class MainController {
      */
     @GetMapping("/wickle/enfant")
     fun enfant(): String {
-        return "pageVisiteur/Produits"
+        return "produits"
     }
 }
