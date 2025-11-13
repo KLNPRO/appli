@@ -1,98 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"></head>
 <body>
+
 <!-- ==================== HEADER FRAGMENT ==================== -->
 <div th:fragment="header">
-    <header class="header">
-        <div class="header-container">
-            <!-- Logo et Nom -->
-            <a href="/wickle" class="logo" th:href="@{/wickle}">
-                <img th:src="@{/img/logo.png}" alt="Logo Wickle">
-                <span>Wickle</span>
-            </a>
+    <header class="header-wickle">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" th:href="@{/wickle}">
+                    <img th:src="@{/img/logo.png}" alt="Logo Wickle" class="me-2">
+                    <span>Wickle</span>
+                </a>
 
-            <!-- Navigation -->
-            <nav>
-                <ul class="nav">
-                    <li><a th:href="@{/wickle}">Accueil</a></li>
-                    <li><a th:href="@{/wickle/homme}">Homme</a></li>
-                    <li><a th:href="@{/wickle/femme}">Femme</a></li>
-                    <li><a th:href="@{/wickle/enfant}">Enfant</a></li>
-                    <li><a th:href="@{/wickle/nouveautes}">Nouveautés</a></li>
-                </ul>
-            </nav>
+                <!-- Bouton mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" style="border: 1px solid white;">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
 
-            <!-- Icons -->
-            <div class="header-icons">
-                <button class="icon-btn" title="Favoris">❤️</button>
-                <button class="icon-btn" title="Panier" onclick="window.location.href='/wickle/panier'">🛒</button>
-                <button class="icon-btn" title="Mon compte" onclick="window.location.href='/wickle/connexion'">👤</button>
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/homme}">Homme</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/femme}">Femme</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/enfant}">Enfant</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/produits}">Tous les produits</a></li>
+                    </ul>
+
+                    <!-- Icons -->
+                    <div class="d-flex gap-2">
+                        <button class="btn-icon" title="Favoris">❤️</button>
+                        <button class="btn-icon" title="Panier"
+                                onclick="window.location.href='/wickle/panier'">🛒</button>
+                        <button class="btn-icon" title="Mon compte"
+                                onclick="window.location.href='/wickle/connexion'">👤</button>
+                    </div>
+                </div>
             </div>
+        </nav>
 
-            <!-- Search Bar -->
-            <div class="search-container">
-                <form class="search-bar" th:action="@{/wickle/recherche}" method="get">
-                    <input type="text" name="q" placeholder="Rechercher un produit..." required>
-                    <button type="submit">🔍 Rechercher</button>
-                </form>
-            </div>
+        <!-- Search Bar -->
+        <div class="container py-3">
+            <form class="search-wickle mx-auto" style="max-width: 600px;"
+                  th:action="@{/wickle/recherche}" method="get">
+                <input type="text" name="q" class="form-control border-0"
+                       placeholder="Rechercher un produit..." required>
+                <button type="submit">🔍</button>
+            </form>
         </div>
     </header>
 </div>
 
 <!-- ==================== FOOTER FRAGMENT ==================== -->
 <div th:fragment="footer">
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
+    <footer class="footer-wickle">
+        <div class="container">
+            <div class="row">
                 <!-- À propos -->
-                <div class="footer-section">
-                    <h4>À propos</h4>
-                    <ul>
-                        <li><a th:href="@{/wickle/a-propos}">Notre mission</a></li>
-                        <li><a th:href="@{/wickle/comment-ca-marche}">Comment ça marche</a></li>
-                        <li><a th:href="@{/wickle/contact}">Contact</a></li>
-                    </ul>
+                <div class="col-md-3 mb-4">
+                    <h5>À propos</h5>
+                    <a th:href="@{/wickle/a-propos}">Notre mission</a>
+                    <a th:href="@{/wickle/comment-ca-marche}">Comment ça marche</a>
+                    <a th:href="@{/wickle/contact}">Contact</a>
                 </div>
 
                 <!-- Aide -->
-                <div class="footer-section">
-                    <h4>Aide</h4>
-                    <ul>
-                        <li><a th:href="@{/wickle/faq}">FAQ</a></li>
-                        <li><a th:href="@{/wickle/livraison}">Livraison</a></li>
-                        <li><a th:href="@{/wickle/retours}">Retours</a></li>
-                    </ul>
+                <div class="col-md-3 mb-4">
+                    <h5>Aide</h5>
+                    <a href="#">FAQ</a>
+                    <a href="#">Livraison</a>
+                    <a href="#">Retours</a>
                 </div>
 
                 <!-- Légal -->
-                <div class="footer-section">
-                    <h4>Légal</h4>
-                    <ul>
-                        <li><a th:href="@{/wickle/cgv}">CGV</a></li>
-                        <li><a th:href="@{/wickle/rgpd}">RGPD</a></li>
-                        <li><a th:href="@{/wickle/mentions-legales}">Mentions légales</a></li>
-                    </ul>
+                <div class="col-md-3 mb-4">
+                    <h5>Légal</h5>
+                    <a href="#">CGV</a>
+                    <a th:href="@{/wickle/rgpd}">RGPD</a>
+                    <a href="#">Mentions légales</a>
                 </div>
 
                 <!-- Newsletter -->
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p style="color: #d1d5db; margin-bottom: 0.5rem;">Recevez nos offres exclusives</p>
-                    <form style="display: flex; gap: 0.5rem;">
-                        <input type="email" placeholder="Votre email"
-                               style="padding: 0.5rem; border-radius: 4px; border: none; flex: 1;">
-                        <button class="btn-primary" style="padding: 0.5rem 1rem; white-space: nowrap;">S'inscrire</button>
-                    </form>
+                <div class="col-md-3 mb-4">
+                    <h5>Newsletter</h5>
+                    <p style="color: #d1d5db;">Recevez nos offres exclusives</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Votre email">
+                        <button class="btn btn-warning">OK</button>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Wickle - Mode durable et accessible</p>
+                <p class="mb-0">&copy; 2024 Wickle - Mode durable et accessible</p>
             </div>
         </div>
     </footer>

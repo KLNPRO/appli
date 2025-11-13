@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="row justify-content-center py-5">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h1 class="text-primary mb-4 text-center">Créer un compte</h1>
+
+                    <form method="post" th:action="@{/wickle/inscription}">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="prenom" class="form-label">Prénom</label>
+                                <input type="text" class="form-control" id="prenom"
+                                       name="prenom" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="nom" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="nom"
+                                       name="nom" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Adresse email</label>
+                            <input type="email" class="form-control" id="email"
+                                   name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="password"
+                                   name="password" required>
+                            <small class="text-muted">
+                                Minimum 8 caractères
+                            </small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">
+                                Confirmer le mot de passe
+                            </label>
+                            <input type="password" class="form-control"
+                                   id="confirmPassword" name="confirmPassword" required>
+                        </div>
+
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" class="form-check-input"
+                                   id="acceptTerms" required>
+                            <label class="form-check-label" for="acceptTerms">
+                                J'accepte les
+                                <a href="#" class="text-primary">conditions générales</a>
+                                et la
+                                <a th:href="@{/wickle/rgpd}" class="text-primary">
+                                    politique de confidentialité
+                                </a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            Créer mon compte
+                        </button>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="text-center">
+                        <p class="mb-0">Déjà un compte ?
+                            <a th:href="@{/wickle/connexion}" class="text-primary">
+                                Se connecter
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

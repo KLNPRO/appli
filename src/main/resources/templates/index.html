@@ -3,94 +3,114 @@
 
 <div th:fragment="content">
     <!-- Hero Banner -->
-    <section class="hero-banner">
+    <section class="hero-wickle">
         <h1>Mode Durable & Accessible</h1>
         <p>Vêtements de seconde main de qualité</p>
-        <button class="btn-primary" onclick="window.location.href='/wickle/produits'">
+        <button class="btn btn-light btn-lg" onclick="window.location.href='/wickle/produits'">
             Découvrir la collection
         </button>
     </section>
+
+    <!-- Categories -->
+    <section class="mb-5">
+        <h2 class="mb-4">Catégories populaires</h2>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="category-card" onclick="window.location.href='/wickle/homme'">
+                    <div class="category-icon">👔</div>
+                    <h5>Homme</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="category-card" onclick="window.location.href='/wickle/femme'">
+                    <div class="category-icon">👗</div>
+                    <h5>Femme</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="category-card" onclick="window.location.href='/wickle/enfant'">
+                    <div class="category-icon">👶</div>
+                    <h5>Enfant</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="category-card" onclick="window.location.href='/wickle/accessoires'">
+                    <div class="category-icon">👜</div>
+                    <h5>Accessoires</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Nouveautés</h2>
+            <a href="/wickle/produits" class="text-primary fw-bold">Voir tout →</a>
+        </div>
+
+        <div class="row g-4">
+            <!-- Produit 1 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">🏷️</div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Homme</p>
+                        <h5 class="product-name">T-shirt Vintage</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="product-price">15€</span>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">🏷️</div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Femme</p>
+                        <h5 class="product-name">Robe d'été</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="product-price">25€</span>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">🏷️</div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Homme</p>
+                        <h5 class="product-name">Jean Slim</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="product-price">30€</span>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 4 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">🏷️</div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Femme</p>
+                        <h5 class="product-name">Pull en laine</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="product-price">20€</span>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
-</html>>
-
-<!-- Categories -->
-<section class="categories-section">
-    <h2 class="section-title">Catégories populaires</h2>
-    <div class="categories-grid">
-        <div class="category-card" onclick="window.location.href='/wickle/homme'">
-            <div class="category-icon">👔</div>
-            <h3>Homme</h3>
-        </div>
-        <div class="category-card" onclick="window.location.href='/wickle/femme'">
-            <div class="category-icon">👗</div>
-            <h3>Femme</h3>
-        </div>
-        <div class="category-card" onclick="window.location.href='/wickle/enfant'">
-            <div class="category-icon">👶</div>
-            <h3>Enfant</h3>
-        </div>
-        <div class="category-card" onclick="window.location.href='/wickle/accessoires'">
-            <div class="category-icon">👜</div>
-            <h3>Accessoires</h3>
-        </div>
-    </div>
-</section>
-
-<!-- Products -->
-<section>
-    <h2 class="section-title">Nouveautés</h2>
-    <div class="products-grid">
-        <!-- Produit 1 -->
-        <div class="product-card">
-            <div class="product-image">🏷️</div>
-            <div class="product-info">
-                <p class="product-category">Homme</p>
-                <h3 class="product-name">T-shirt Vintage</h3>
-                <div class="product-footer">
-                    <span class="product-price">15€</span>
-                    <button class="btn-add-cart">Ajouter</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produit 2 -->
-        <div class="product-card">
-            <div class="product-image">🏷️</div>
-            <div class="product-info">
-                <p class="product-category">Femme</p>
-                <h3 class="product-name">Robe d'été</h3>
-                <div class="product-footer">
-                    <span class="product-price">25€</span>
-                    <button class="btn-add-cart">Ajouter</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produit 3 -->
-        <div class="product-card">
-            <div class="product-image">🏷️</div>
-            <div class="product-info">
-                <p class="product-category">Homme</p>
-                <h3 class="product-name">Jean Slim</h3>
-                <div class="product-footer">
-                    <span class="product-price">30€</span>
-                    <button class="btn-add-cart">Ajouter</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produit 4 -->
-        <div class="product-card">
-            <div class="product-image">🏷️</div>
-            <div class="product-info">
-                <p class="product-category">Femme</p>
-                <h3 class="product-name">Pull en laine</h3>
-                <div class="product-footer">
-                    <span class="product-price">20€</span>
-                    <button class="btn-add-cart">Ajouter</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</html>
