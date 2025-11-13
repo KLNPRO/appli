@@ -10,12 +10,12 @@ class MainController {
         return "index"
 
     }
-    @GetMapping("/appli-wickle/a-propos")
+    @GetMapping("/wickle/a-propos")
     fun aPropos(): String {
         return "pageVisiteur/a-propos"
     }
 
-    @GetMapping("/appli-wickle/contact")
+    @GetMapping("/wickle/contact")
     fun contact(): String {
         return "contact"
     }
@@ -23,7 +23,7 @@ class MainController {
     /**
      * Page Inscription
      */
-    @GetMapping("/appli-wickle/inscription")
+    @GetMapping("/wickle/inscription")
     fun inscription(): String {
         return "inscription"
     }
@@ -31,7 +31,7 @@ class MainController {
     /**
      * Page Connexion
      */
-    @GetMapping("/appli-wickle/connexion")
+    @GetMapping("/wickle/connexion")
     fun connexion(): String {
         return "pageVisiteur/connexion"
     }
@@ -39,7 +39,7 @@ class MainController {
     /**
      * Page Liste des produits
      */
-    @GetMapping("/appli-wickle/produits")
+    @GetMapping("/wickle/produits")
     fun produits(): String {
         return "produits"
     }
@@ -47,7 +47,7 @@ class MainController {
     /**
      * Page RGPD
      */
-    @GetMapping("/appli-wickle/rgpd")
+    @GetMapping("/wickle/rgpd")
     fun rgpd(): String {
         return "rgpd"
     }
