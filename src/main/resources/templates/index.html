@@ -6,59 +6,94 @@
     <section class="hero-wickle">
         <h1>Mode Durable & Accessible</h1>
         <p>Vêtements de seconde main de qualité</p>
-        <button class="btn btn-light btn-lg" onclick="window.location.href='/appli-wickle/produits'">
-            Découvrir la collection
+        <button class="btn btn-light btn-lg px-5" onclick="window.location.href='/wickle/produits'">
+            Découvrir la collection →
         </button>
     </section>
 
     <!-- Categories -->
     <section class="mb-5">
-        <h2 class="mb-4">Catégories populaires</h2>
-        <div class="row g-3">
+        <h2 class="mb-4 fw-bold">Catégories populaires</h2>
+        <div class="row g-4">
             <div class="col-6 col-md-3">
-                <div class="category-card" onclick="window.location.href='/appli-wickle/homme'">
+                <div class="category-card" onclick="window.location.href='/wickle/homme'">
                     <div class="category-icon">👔</div>
-                    <h5>Homme</h5>
+                    <h5 class="mb-0">Homme</h5>
+                    <p class="small text-muted mb-0">2,500+ articles</p>
                 </div>
             </div>
             <div class="col-6 col-md-3">
-                <div class="category-card" onclick="window.location.href='/appli-wickle/femme'">
+                <div class="category-card" onclick="window.location.href='/wickle/femme'">
                     <div class="category-icon">👗</div>
-                    <h5>Femme</h5>
+                    <h5 class="mb-0">Femme</h5>
+                    <p class="small text-muted mb-0">3,200+ articles</p>
                 </div>
             </div>
             <div class="col-6 col-md-3">
-                <div class="category-card" onclick="window.location.href='/appli-wickle/enfant'">
+                <div class="category-card" onclick="window.location.href='/wickle/enfant'">
                     <div class="category-icon">👶</div>
-                    <h5>Enfant</h5>
+                    <h5 class="mb-0">Enfant</h5>
+                    <p class="small text-muted mb-0">1,800+ articles</p>
                 </div>
             </div>
             <div class="col-6 col-md-3">
-                <div class="category-card" onclick="window.location.href='/appli-wickle/accessoires'">
+                <div class="category-card" onclick="window.location.href='/wickle/produits'">
                     <div class="category-icon">👜</div>
-                    <h5>Accessoires</h5>
+                    <h5 class="mb-0">Accessoires</h5>
+                    <p class="small text-muted mb-0">900+ articles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bannière impact -->
+    <section class="mb-5">
+        <div class="card bg-light border-0">
+            <div class="card-body p-5 text-center">
+                <h3 class="mb-4">🌱 Votre impact avec Wickle</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="fs-2 text-primary mb-2">50 tonnes</div>
+                        <p class="mb-0 text-muted">CO₂ économisé</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="fs-2 text-primary mb-2">2,700L</div>
+                        <p class="mb-0 text-muted">Eau économisée par vêtement</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="fs-2 text-primary mb-2">10,000+</div>
+                        <p class="mb-0 text-muted">Vêtements sauvés</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products -->
-    <section>
+    <section class="mb-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Nouveautés</h2>
-            <a href="/wickle/produits" class="text-primary fw-bold">Voir tout →</a>
+            <h2 class="mb-0 fw-bold">Nouveautés de la semaine</h2>
+            <a href="/wickle/produits" class="text-primary fw-bold text-decoration-none">
+                Voir tout →
+            </a>
         </div>
 
         <div class="row g-4">
             <!-- Produit 1 -->
             <div class="col-6 col-md-3">
                 <div class="product-card">
-                    <div class="product-image">🏷️</div>
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👔</span>
+                    </div>
                     <div class="p-3">
                         <p class="product-category mb-1">Homme</p>
-                        <h5 class="product-name">T-shirt Vintage</h5>
+                        <h5 class="product-name">T-shirt Vintage Ralph Lauren</h5>
+                        <p class="small text-muted mb-2">Taille M • Excellent état</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="product-price">15€</span>
+                            <div>
+                                <span class="product-price">15€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">45€</span>
+                            </div>
                             <button class="btn btn-primary btn-sm">Ajouter</button>
                         </div>
                     </div>
@@ -68,12 +103,18 @@
             <!-- Produit 2 -->
             <div class="col-6 col-md-3">
                 <div class="product-card">
-                    <div class="product-image">🏷️</div>
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👗</span>
+                    </div>
                     <div class="p-3">
                         <p class="product-category mb-1">Femme</p>
-                        <h5 class="product-name">Robe d'été</h5>
+                        <h5 class="product-name">Robe d'été Zara</h5>
+                        <p class="small text-muted mb-2">Taille S • Comme neuf</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="product-price">25€</span>
+                            <div>
+                                <span class="product-price">25€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">60€</span>
+                            </div>
                             <button class="btn btn-primary btn-sm">Ajouter</button>
                         </div>
                     </div>
@@ -83,12 +124,18 @@
             <!-- Produit 3 -->
             <div class="col-6 col-md-3">
                 <div class="product-card">
-                    <div class="product-image">🏷️</div>
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👖</span>
+                    </div>
                     <div class="p-3">
                         <p class="product-category mb-1">Homme</p>
-                        <h5 class="product-name">Jean Slim</h5>
+                        <h5 class="product-name">Jean Slim Levi's 511</h5>
+                        <p class="small text-muted mb-2">Taille 32 • Très bon état</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="product-price">30€</span>
+                            <div>
+                                <span class="product-price">30€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">90€</span>
+                            </div>
                             <button class="btn btn-primary btn-sm">Ajouter</button>
                         </div>
                     </div>
@@ -98,14 +145,161 @@
             <!-- Produit 4 -->
             <div class="col-6 col-md-3">
                 <div class="product-card">
-                    <div class="product-image">🏷️</div>
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">🧥</span>
+                    </div>
                     <div class="p-3">
                         <p class="product-category mb-1">Femme</p>
-                        <h5 class="product-name">Pull en laine</h5>
+                        <h5 class="product-name">Pull en laine H&M</h5>
+                        <p class="small text-muted mb-2">Taille M • Excellent état</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="product-price">20€</span>
+                            <div>
+                                <span class="product-price">20€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">50€</span>
+                            </div>
                             <button class="btn btn-primary btn-sm">Ajouter</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 5 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👕</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Homme</p>
+                        <h5 class="product-name">Chemise Tommy Hilfiger</h5>
+                        <p class="small text-muted mb-2">Taille L • Comme neuf</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">22€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">70€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 6 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👚</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Femme</p>
+                        <h5 class="product-name">Blouse Mango</h5>
+                        <p class="small text-muted mb-2">Taille S • Excellent état</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">18€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">45€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 7 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👶</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Enfant</p>
+                        <h5 class="product-name">Ensemble Petit Bateau</h5>
+                        <p class="small text-muted mb-2">2-3 ans • Très bon état</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">12€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">35€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 8 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👜</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Accessoires</p>
+                        <h5 class="product-name">Sac à main Michael Kors</h5>
+                        <p class="small text-muted mb-2">Cuir • Bon état</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">45€</span>
+                                <span class="small text-muted text-decoration-line-through ms-2">180€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="mb-5">
+        <div class="card bg-primary text-white border-0">
+            <div class="card-body p-5 text-center">
+                <h2 class="mb-3">Rejoignez le mouvement Wickle</h2>
+                <p class="lead mb-4">
+                    Inscrivez-vous pour recevoir nos meilleures offres et être informé des nouvelles arrivées
+                </p>
+                <button class="btn btn-light btn-lg px-5" onclick="window.location.href='/wickle/inscription'">
+                    Créer mon compte gratuitement
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section>
+        <h2 class="mb-4 fw-bold text-center">Pourquoi choisir Wickle ?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="fs-1 mb-3">🚚</div>
+                        <h4 class="mb-3">Livraison rapide</h4>
+                        <p class="text-muted mb-0">
+                            Recevez vos articles en 3-5 jours. Livraison gratuite dès 50€
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="fs-1 mb-3">🔄</div>
+                        <h4 class="mb-3">Retours faciles</h4>
+                        <p class="text-muted mb-0">
+                            14 jours pour changer d'avis. Processus de retour simplifié
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="fs-1 mb-3">✅</div>
+                        <h4 class="mb-3">Qualité garantie</h4>
+                        <p class="text-muted mb-0">
+                            Tous nos articles sont inspectés et de qualité seconde main
+                        </p>
                     </div>
                 </div>
             </div>

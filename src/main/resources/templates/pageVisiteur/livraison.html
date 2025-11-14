@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="text-primary mb-4">🚚 Livraison</h1>
+
+                <!-- Modes de livraison -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4">Modes de livraison disponibles</h3>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="p-4 border rounded h-100">
+                                    <h5 class="text-primary mb-3">📦 Livraison Standard</h5>
+                                    <p class="mb-2"><strong>Délai :</strong> 3-5 jours ouvrés</p>
+                                    <p class="mb-2"><strong>Prix :</strong> 4,90€</p>
+                                    <p class="mb-0"><strong>Gratuit</strong> dès 50€ d'achat</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-4 border rounded h-100 border-warning">
+                                    <h5 class="text-warning mb-3">⚡ Livraison Express</h5>
+                                    <p class="mb-2"><strong>Délai :</strong> 24h</p>
+                                    <p class="mb-2"><strong>Prix :</strong> 9,90€</p>
+                                    <p class="mb-0 small text-muted">Commande avant 14h pour livraison le lendemain</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zones de livraison -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4">Zones de livraison</h3>
+                        <div class="alert alert-info">
+                            <strong>📍 France métropolitaine :</strong> Toutes les régions sont couvertes
+                        </div>
+                        <div class="alert alert-warning">
+                            <strong>🏝️ Corse :</strong> Délai supplémentaire de 2-3 jours
+                        </div>
+                        <div class="alert alert-secondary">
+                            <strong>🌍 International :</strong> Non disponible actuellement
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processus -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4">Processus de livraison</h3>
+
+                        <div class="row text-center g-4">
+                            <div class="col-md-3">
+                                <div class="fs-1 mb-2">📋</div>
+                                <h5>1. Commande validée</h5>
+                                <p class="small text-muted">Confirmation par email</p>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="fs-1 mb-2">📦</div>
+                                <h5>2. Préparation</h5>
+                                <p class="small text-muted">Sous 24-48h</p>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="fs-1 mb-2">🚚</div>
+                                <h5>3. Expédition</h5>
+                                <p class="small text-muted">N° de suivi envoyé</p>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="fs-1 mb-2">✅</div>
+                                <h5>4. Réception</h5>
+                                <p class="small text-muted">Colis livré</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suivi -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Suivi de commande</h3>
+                        <p class="mb-3">
+                            Dès l'expédition de votre colis, vous recevrez un email contenant votre
+                            numéro de suivi. Vous pourrez suivre votre commande en temps réel sur le
+                            site du transporteur.
+                        </p>
+                        <p class="mb-0">
+                            Vous pouvez également consulter l'état de vos commandes depuis votre
+                            <a th:href="@{/wickle/connexion}" class="text-primary">espace personnel</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Problèmes -->
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Problème avec votre livraison ?</h3>
+                        <p class="mb-3">
+                            Si vous rencontrez un problème (retard, colis endommagé, erreur d'adresse),
+                            n'hésitez pas à nous contacter rapidement.
+                        </p>
+                        <a th:href="@{/wickle/contact}" class="btn btn-primary">
+                            Contactez le service client
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

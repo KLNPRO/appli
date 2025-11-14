@@ -10,7 +10,7 @@
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand d-flex align-items-center" th:href="@{/wickle}">
-                    <img th:src="@{/img/logo.png}" alt="Logo Wickle" class="me-2">
+                    <img th:src="@{/img/logo.png}" alt="Logo Wickle" class="me-2" style="background: transparent;">
                     <span>Wickle</span>
                 </a>
 
@@ -32,10 +32,10 @@
 
                     <!-- Icons -->
                     <div class="d-flex gap-2">
-                        <button class="btn-icon" title="Favoris">❤️</button>
-                        <button class="btn-icon" title="Panier"
+                        <button class="btn-icon" title="Favoris" aria-label="Favoris">❤️</button>
+                        <button class="btn-icon" title="Panier" aria-label="Panier"
                                 onclick="window.location.href='/wickle/panier'">🛒</button>
-                        <button class="btn-icon" title="Mon compte"
+                        <button class="btn-icon" title="Mon compte" aria-label="Mon compte"
                                 onclick="window.location.href='/wickle/connexion'">👤</button>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                   th:action="@{/wickle/recherche}" method="get">
                 <input type="text" name="q" class="form-control border-0"
                        placeholder="Rechercher un produit..." required>
-                <button type="submit">🔍</button>
+                <button type="submit" aria-label="Rechercher">🔍</button>
             </form>
         </div>
     </header>
@@ -70,32 +70,39 @@
                 <!-- Aide -->
                 <div class="col-md-3 mb-4">
                     <h5>Aide</h5>
-                    <a href="#">FAQ</a>
-                    <a href="#">Livraison</a>
-                    <a href="#">Retours</a>
+                    <a th:href="@{/wickle/faq}">FAQ</a>
+                    <a th:href="@{/wickle/livraison}">Livraison</a>
+                    <a th:href="@{/wickle/retours}">Retours</a>
                 </div>
 
                 <!-- Légal -->
                 <div class="col-md-3 mb-4">
                     <h5>Légal</h5>
-                    <a href="#">CGV</a>
+                    <a th:href="@{/wickle/cgv}">CGV</a>
                     <a th:href="@{/wickle/rgpd}">RGPD</a>
-                    <a href="#">Mentions légales</a>
+                    <a th:href="@{/wickle/mentions-legales}">Mentions légales</a>
                 </div>
 
                 <!-- Newsletter -->
                 <div class="col-md-3 mb-4">
                     <h5>Newsletter</h5>
                     <p style="color: #d1d5db;">Recevez nos offres exclusives</p>
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Votre email">
-                        <button class="btn btn-warning">OK</button>
-                    </div>
+                    <form class="mt-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
+                            <button class="btn btn-warning" type="submit">OK</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p class="mb-0">&copy; 2024 Wickle - Mode durable et accessible</p>
+                <p class="mb-2">&copy; 2024 Wickle - Mode durable et accessible</p>
+                <p class="small mb-0">
+                    <a th:href="@{/wickle}" style="color: #9ca3af; display: inline; margin-right: 15px;">Accueil</a>
+                    <a th:href="@{/wickle/a-propos}" style="color: #9ca3af; display: inline; margin-right: 15px;">À propos</a>
+                    <a th:href="@{/wickle/contact}" style="color: #9ca3af; display: inline;">Contact</a>
+                </p>
             </div>
         </div>
     </footer>

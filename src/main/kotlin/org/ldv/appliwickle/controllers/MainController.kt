@@ -65,7 +65,7 @@ class MainController {
      */
     @GetMapping("/wickle/homme")
     fun homme(): String {
-        return "pageVisiteur/produits"  // Réutilise la page produits
+        return "pageVisiteur/homme"  // Réutilise la page produits
     }
 
     /**
@@ -73,7 +73,7 @@ class MainController {
      */
     @GetMapping("/wickle/femme")
     fun femme(): String {
-        return "pageVisiteur/produits"
+        return "pageVisiteur/femme"
     }
 
     /**
@@ -81,7 +81,7 @@ class MainController {
      */
     @GetMapping("/wickle/enfant")
     fun enfant(): String {
-        return "pageVisiteur/produits"
+        return "pageVisiteur/enfant"
     }
 
     @GetMapping("/wickle/comment-ca-marche")
@@ -92,5 +92,31 @@ class MainController {
     @GetMapping("/wickle/recherche")
     fun recherche(): String {
         return "pageVisiteur/recherche"
+    }
+    // === PAGES DU FOOTER ===
+
+    @GetMapping("/wickle/faq")
+    fun faq(): String {
+        return "pageVisiteur/faq"
+    }
+
+    @GetMapping("/wickle/livraison")
+    fun livraison(): String {
+        return "pageVisiteur/livraison"
+    }
+
+    @GetMapping("/wickle/retours")
+    fun retours(): String {
+        return "pageVisiteur/retours"
+    }
+
+    @GetMapping("/wickle/cgv")
+    fun cgv(): String {
+        return "pageVisiteur/cgv"
+    }
+
+    @GetMapping("/wickle/mentions-legales")
+    fun mentionsLegales(): String {
+        return "pageVisiteur/mentions-legales"
     }
 }
