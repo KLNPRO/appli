@@ -115,7 +115,7 @@ class AdminProduitController(private val produitDAO: ProduitDAO,
         @RequestParam description: String,
         @RequestParam prix: Double,
         @RequestParam stock: Int,
-        @RequestParam categorieId: Long,
+        @RequestParam categorieId: Int,
         redirectAttributes: RedirectAttributes
     ): String {
         try {
