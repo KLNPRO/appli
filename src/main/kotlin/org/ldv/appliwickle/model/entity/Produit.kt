@@ -25,16 +25,16 @@ class Produit(
     var dateAjout: LocalDate = LocalDate.now(),
 
     // Relations
-    //@ManyToOne
-    //@JoinColumn(name = "categorie_id", nullable = false)
-   // var categorie: Categorie,
+    @ManyToOne
+    @JoinColumn(name = "categorie_id", nullable = false)
+    var categorie: Categorie,
 
-   // @OneToMany(mappedBy = "produit", cascade = [CascadeType.ALL], orphanRemoval = true)
-    //var images: MutableList = mutableListOf(),
+    @OneToMany(mappedBy = "produit", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var images: MutableList<Image> = mutableListOf(),
 
-    //@OneToMany(mappedBy = "produit", cascade = [CascadeType.ALL], orphanRemoval = true)
-    //var variantes: MutableList = mutableListOf(),
+    @OneToMany(mappedBy = "produit", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var variantes: MutableList<Image> = mutableListOf(),
 
-    //@OneToMany(mappedBy = "produit", cascade = [CascadeType.ALL], orphanRemoval = true)
-    //var avis: MutableList = mutableListOf()
+    @OneToMany(mappedBy = "produit", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var avis: MutableList<Image> = mutableListOf()
 )

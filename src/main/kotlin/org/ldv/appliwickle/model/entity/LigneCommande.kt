@@ -2,24 +2,25 @@ package org.ldv.appliwickle.model.entity
 
 import jakarta.persistence.*
 
-//@Entity
+@Entity
 class LigneCommande(
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
 
-    //@Column(nullable = false)
+    @EmbeddedId
+    var id: LigneCommandeId,
+    @Column(nullable = false)
     var quantite: Int,
 
-    //@Column(nullable = false)
+    @Column(nullable = false)
     var prixUnitaire: Double,
 
     // Relations
-    //@ManyToOne
-    //@JoinColumn(name = "commande_id", nullable = false)
-    //var commande: Commande,
+    @ManyToOne
+    @JoinColumn(name = "commande_id", nullable = false)
+    @MapsId(value = "commandeId")
+    var commande: Commande,
 
-    //@ManyToOne
-    //@JoinColumn(name = "variante_id", nullable = false)
-    //var variante: Variante
+    @ManyToOne
+    @MapsId(value = "varianteId")
+    @JoinColumn(name = "variante_id", nullable = false)
+    var variante: Variante
 )

@@ -15,7 +15,7 @@ class Image(
     var estPrincipale: Boolean = false,
 
     // Relation
-    //@ManyToOne
-    //@JoinColumn(name = "produit_id", nullable = false)
-    //var produit: Produit
+    @ManyToOne
+    @JoinColumn(name = "produit_id", nullable = false)
+    var produit: Produit
 )

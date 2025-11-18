@@ -1,4 +1,7 @@
 package org.ldv.appliwickle.model.dao
 
-interface VarianteDAO {
+import org.springframework.data.jpa.repository.JpaRepository
+import org.ldv.appliwickle.model.entity.Variante
+
+interface VarianteDAO: JpaRepository<Variante, Int> {
 }

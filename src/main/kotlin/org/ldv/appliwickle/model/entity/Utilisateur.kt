@@ -1,5 +1,6 @@
 package org.ldv.appliwickle.model.entity
 import jakarta.persistence.*
+import java.net.InetAddress
 import java.time.LocalDate
 
 @Entity
@@ -23,6 +24,8 @@ class Utilisateur(
 
     var telephone: String? = null,
 
+    var adresse: String,
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     var role: Role = Role.CLIENT,
@@ -31,15 +34,14 @@ class Utilisateur(
     var dateInscription: LocalDate = LocalDate.now(),
 
     // Relations
-    //@OneToMany(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
-    //var adresse: MutableList = mutableListOf(),
 
-    //@OneToOne(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
-    //var panier: Panier? = null,
 
-   // @OneToMany(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
-    //var commande: MutableList = mutableListOf(),
+    @OneToOne(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
+    var panier: Panier? = null,
 
-    //@OneToMany(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
-    //var avis: MutableList = mutableListOf()
+    @OneToMany(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
+    var commandes: MutableList<Commande> = mutableListOf(),
+
+    @OneToMany(mappedBy = "utilisateur", cascade = [CascadeType.ALL])
+    var avis: MutableList<Avis> = mutableListOf()
 )

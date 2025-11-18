@@ -19,7 +19,7 @@ class Variante(
     var stock: Int = 0,
 
     // Relation
-    //@ManyToOne
-    //@JoinColumn(name = "produit_id", nullable = false)
-    //var produit: Produit
+    @ManyToOne
+    @JoinColumn(name = "produit_id", nullable = false)
+    var produit: Produit
 )

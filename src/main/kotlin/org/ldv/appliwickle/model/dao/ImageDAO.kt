@@ -1,4 +1,7 @@
 package org.ldv.appliwickle.model.dao
 
-interface ImageDAO {
+import org.ldv.appliwickle.model.entity.Image
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface ImageDAO: JpaRepository<Image, Int> {
 }

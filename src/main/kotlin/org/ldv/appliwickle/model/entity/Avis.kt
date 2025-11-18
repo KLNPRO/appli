@@ -19,11 +19,11 @@ class Avis(
     var dateAvis: LocalDate = LocalDate.now(),
 
     // Relations
-    //@ManyToOne
-    //@JoinColumn(name = "utilisateur_id", nullable = false)
-    //var utilisateur: Utilisateur,
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id", nullable = false)
+    var utilisateur: Utilisateur,
 
-    //@ManyToOne
-    //@JoinColumn(name = "produit_id", nullable = false)
-    //var produit: Produit
+    @ManyToOne
+    @JoinColumn(name = "produit_id", nullable = false)
+    var produit: Produit
 )

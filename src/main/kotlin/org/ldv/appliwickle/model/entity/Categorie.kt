@@ -15,6 +15,6 @@ class Categorie(
     var description: String? = null,
 
     // Relation
-   // @OneToMany(mappedBy = "categorie", cascade = [CascadeType.ALL])
-    //var produits: MutableList = mutableListOf()
+    @OneToMany(mappedBy = "categorie", cascade = [CascadeType.ALL])
+    var produits: MutableList<Produit> = mutableListOf()
 )

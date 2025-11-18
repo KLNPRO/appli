@@ -1,4 +1,8 @@
 package org.ldv.appliwickle.model.dao
 
-interface AvisDAO {
+import org.ldv.appliwickle.model.entity.Avis
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface AvisDAO: JpaRepository<Avis, Int> {
+
 }

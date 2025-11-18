@@ -1,4 +1,7 @@
 package org.ldv.appliwickle.model.dao
 
-interface LigneCommandeDAO {
+import org.ldv.appliwickle.model.entity.LigneCommande
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface LigneCommandeDAO: JpaRepository<LigneCommande, Long> {
 }

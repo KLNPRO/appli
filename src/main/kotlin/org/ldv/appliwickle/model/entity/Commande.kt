@@ -22,15 +22,15 @@ class Commande(
     @Column(nullable = false)
     var statut: StatutCommande = StatutCommande.EN_ATTENTE,
 
+    var adresseLivraison: String? = null,
+
     // Relations
-    //@ManyToOne
-    //@JoinColumn(name = "utilisateur_id", nullable = false)
-    //var utilisateur: Utilisateur,
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id", nullable = false)
+    var utilisateur: Utilisateur,
 
-    //@ManyToOne
-    //@JoinColumn(name = "adresse_id", nullable = false)
-    //var adresseLivraison: Adresse,
 
-    //@OneToMany(mappedBy = "commande", cascade = [CascadeType.ALL], orphanRemoval = true)
-   // var lignesCommande: MutableList = mutableListOf()
+
+    @OneToMany(mappedBy = "commande", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var lignesCommande: MutableList<LigneCommande> = mutableListOf()
 )
