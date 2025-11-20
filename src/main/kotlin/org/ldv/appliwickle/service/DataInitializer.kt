@@ -20,6 +20,7 @@ import org.ldv.appliwickle.model.entity.TailleProduit
 import org.ldv.appliwickle.model.entity.Utilisateur
 import org.ldv.appliwickle.model.entity.Variante
 import org.springframework.boot.CommandLineRunner
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
 import java.time.LocalDate
 
@@ -32,7 +33,8 @@ class DataInitializer(
     private val varianteDAO: VarianteDAO,
     private val panierDAO: PanierDAO,
     private val commandeDAO: CommandeDAO,
-    private val avisDAO: AvisDAO
+    private val avisDAO: AvisDAO,
+    private val passwordEncoder: PasswordEncoder
 ) : CommandLineRunner {
 
     //private val passwordEncoder = BCryptPasswordEncoder()
@@ -53,7 +55,7 @@ class DataInitializer(
             nom = "Admin",
             prenom = "Wickle",
             email = "admin@wickle.fr",
-            motDePasse = "admin123",
+            motDePasse = passwordEncoder.encode("admin123"), // ⚠️ MOT DE PASSE HASHÉ
             telephone = "0612345678",
             role = Role.ADMIN,
             adresse = "",
@@ -65,7 +67,7 @@ class DataInitializer(
             nom = "Dupont",
             prenom = "Marie",
             email = "marie.dupont@example.com",
-            motDePasse = "client123",
+            motDePasse = passwordEncoder.encode("client123"), // ⚠️ MOT DE PASSE HASHÉ
             telephone = "0623456789",
             role = Role.CLIENT,
             adresse = "",
@@ -76,7 +78,7 @@ class DataInitializer(
             nom = "Martin",
             prenom = "Pierre",
             email = "pierre.martin@example.com",
-            motDePasse = "client123",
+            motDePasse = passwordEncoder.encode("client123"), // ⚠️ MOT DE PASSE HASHÉ
             telephone = "0634567890",
             role = Role.CLIENT,
             adresse = "",

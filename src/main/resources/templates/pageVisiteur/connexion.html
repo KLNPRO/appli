@@ -8,11 +8,16 @@
                 <div class="card-body p-5">
                     <h1 class="text-primary mb-4 text-center">Connexion</h1>
 
-                    <form method="post" th:action="@{/appli-wickle/connexion}">
+                    <!-- Message d'erreur -->
+                    <div th:if="${error}" class="alert alert-danger" role="alert">
+                        ❌ Identifiants incorrects. Veuillez réessayer.
+                    </div>
+
+                    <form method="post" th:action="@{/wickle/connexion}">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Adresse email</label>
-                            <input type="email" class="form-control form-control-lg"
-                                   id="email" name="email" required>
+                            <label for="username" class="form-label">Adresse email</label>
+                            <input type="text" class="form-control form-control-lg"
+                                   id="username" name="username" required>
                         </div>
 
                         <div class="mb-3">
@@ -22,8 +27,9 @@
                         </div>
 
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
-                            <label class="form-check-label" for="remember">
+                            <input type="checkbox" class="form-check-input"
+                                   id="remember-me" name="remember-me">
+                            <label class="form-check-label" for="remember-me">
                                 Se souvenir de moi
                             </label>
                         </div>
@@ -31,10 +37,6 @@
                         <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
                             Se connecter
                         </button>
-
-                        <div class="text-center">
-                            <a href="#" class="text-muted small">Mot de passe oublié ?</a>
-                        </div>
                     </form>
 
                     <hr class="my-4">
@@ -45,10 +47,14 @@
                             Créer un compte
                         </a>
                     </div>
+                    <div class="mt-4 p-3 bg-light rounded">
+                        <p class="small mb-2"><strong>🔐 Comptes de test :</strong></p>
+                        <p class="small mb-1">👨‍💼 Admin : admin@wickle.fr / admin123</p>
+                        <p class="small mb-0">👤 Client : marie.dupont@example.com / client123</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </html>
