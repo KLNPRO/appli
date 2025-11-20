@@ -71,7 +71,7 @@ class AdminProduitController(private val produitDAO: ProduitDAO,
         redirectAttributes: RedirectAttributes
     ): String {
         try {
-            val categorie = categorieDAO.findById(categorieId).orElseThrow {
+            val categorie = categorieDAO.findById(categorieId.toInt()).orElseThrow {
                 IllegalArgumentException("Catégorie introuvable")
             }
 

@@ -17,6 +17,6 @@ class Panier(
     @JoinColumn(name = "utilisateur_id", nullable = false, unique = true)
     var utilisateur: Utilisateur,
 
-    @OneToMany(mappedBy = "panier", cascade = [CascadeType.ALL], orphanRemoval = true)
-    var lignesPanier: MutableList<Image> = mutableListOf()
+    /*@OneToMany(mappedBy = "panier", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var lignesPanier: MutableList<LignePanier> = mutableListOf()*/
 )
