@@ -27,6 +27,7 @@ class MainController {
         // Sinon → on affiche la page profil client
         return "pageClient/profile"
     }
+
     @GetMapping("/wickle/connexion")
     fun connexion(@RequestParam error: Boolean?, model: Model): String {
         model.addAttribute("error", error == true)

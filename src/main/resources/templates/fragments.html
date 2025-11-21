@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head><meta charset="UTF-8"></head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <body>
 
+<!-- ==================== HEADER FRAGMENT ==================== -->
 <!-- ==================== HEADER FRAGMENT ==================== -->
 <div th:fragment="header">
     <header class="header-wickle">
@@ -10,8 +10,8 @@
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand d-flex align-items-center" th:href="@{/wickle}">
-                    <img th:src="@{/img/logo.png}" alt="Logo Wickle" class="me-2" style="background: transparent;">
-
+                    <img th:src="@{/img/logo.png}" alt="Logo Wickle" class="me-2"
+                         style="background: transparent;">
                 </a>
 
                 <!-- Bouton mobile -->
@@ -28,6 +28,11 @@
                         <li class="nav-item"><a class="nav-link" th:href="@{/wickle/femme}">Femme</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/wickle/enfant}">Enfant</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/wickle/produits}">Tous les produits</a></li>
+
+                        <!-- Lien Admin (visible seulement pour les ADMIN) -->
+                        <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                            <a class="nav-link" th:href="@{/wickle/admin}">⚙️ Admin</a>
+                        </li>
                     </ul>
 
                     <!-- Icons -->
@@ -35,8 +40,23 @@
                         <button class="btn-icon" title="Favoris" aria-label="Favoris">❤️</button>
                         <button class="btn-icon" title="Panier" aria-label="Panier"
                                 onclick="window.location.href='/wickle/panier'">🛒</button>
-                        <button class="btn-icon" title="Mon compte" aria-label="Mon compte"
+
+                        <!-- Bouton connexion (visible si NON connecté) -->
+                        <button sec:authorize="!isAuthenticated()" class="btn-icon"
+                                title="Mon compte" aria-label="Mon compte"
                                 onclick="window.location.href='/wickle/connexion'">👤</button>
+
+                        <!-- Bouton profil (visible si connecté) -->
+                        <button sec:authorize="isAuthenticated()" class="btn-icon"
+                                title="Mon profil" aria-label="Mon profil"
+                                onclick="window.location.href='/wickle/profil'">👤</button>
+
+                        <!-- Bouton déconnexion (visible si connecté) -->
+                        <form sec:authorize="isAuthenticated()"
+                              th:action="@{/wickle/logout}" method="post" class="d-inline">
+                            <button type="submit" class="btn-icon"
+                                    title="Déconnexion" aria-label="Déconnexion">🚪</button>
+                        </form>
                     </div>
                 </div>
             </div>
