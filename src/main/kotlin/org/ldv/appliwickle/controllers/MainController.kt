@@ -52,13 +52,6 @@ class MainController {
         return "pageVisiteur/inscription"
     }
 
-    /**
-     * Page Connexion
-     */
-    @GetMapping("/wickle/connexion")
-    fun connexion(): String {
-        return "pageVisiteur/connexion"
-    }
 
     /**
      * Page Liste des produits

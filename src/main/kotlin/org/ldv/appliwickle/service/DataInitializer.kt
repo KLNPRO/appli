@@ -97,6 +97,10 @@ class DataInitializer(
             utilisateur = client2,
             dateCreation = LocalDate.now()
         )
+        client1.panier = panierClient1
+        client2.panier = panierClient2
+
+
         panierDAO.save(panierClient2)
 
 
