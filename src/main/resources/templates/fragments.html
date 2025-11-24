@@ -65,8 +65,8 @@
         <!-- Search Bar -->
         <div class="container py-3">
             <form class="search-wickle mx-auto" style="max-width: 600px;"
-                  th:action="@{/wickle/recherche}" method="get">
-                <input type="text" name="q" class="form-control border-0"
+                  th:action="@{/wickle/produitrecherche}" method="get">
+                <input type="text" name="nomRechercher" class="form-control border-0"
                        placeholder="Rechercher un produit..." required>
                 <button type="submit" aria-label="Rechercher">🔍</button>
             </form>

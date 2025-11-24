@@ -1,5 +1,6 @@
 package org.ldv.appliwickle.controllers
 
+import org.ldv.appliwickle.model.dao.ProduitDAO
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -7,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
-class MainController {
+class MainController (
+    val produitDAO: ProduitDAO
+){
     @GetMapping("/wickle")
     fun home(): String {
         return "index"
@@ -135,5 +138,15 @@ class MainController {
     @GetMapping("/wickle/mentions-legales")
     fun mentionsLegales(): String {
         return "pageVisiteur/mentions-legales"
+    }
+
+    @GetMapping("/wickle/produitrecherche")
+    fun produitrecherche(@RequestParam nomRechercher:String,model: Model): String {
+        var lesProduits = produitDAO.findAllByNomIgnoreCaseContaining(nomRechercher)
+        model.addAttribute(
+            "produits",
+            lesProduits
+        )
+        return "pageVisiteur/produitrecherche"
     }
 }
