@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @Controller
-@RequestMapping("/wickle/admin/categories")
+
 
 class AdminCategorieController(private val categorieDAO: CategorieDAO){
     /**
      * Affiche la liste de toutes les catégories
      */
-    @GetMapping
+    @GetMapping("/wickle/admin/categories")
     fun index(model: Model): String {
         val categories = categorieDAO.findAll()
 
         model.addAttribute("categories", categories)
-        return "pageAdmin/produit/edit"
+        return "pageAdmin/categorie/index"
 }
 
 }
