@@ -19,6 +19,7 @@
                         </nav>
 
                         <form th:action="@{/wickle/admin/categories/store}" method="post">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Nom de la catégorie *</label>
                                 <input type="text" class="form-control" id="nom" name="nom"

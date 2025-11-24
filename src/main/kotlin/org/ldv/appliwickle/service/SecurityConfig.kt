@@ -18,7 +18,7 @@ class SecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .csrf { it.disable() } // TODO: Réactiver plus tard avec les tokens CSRF
+
 
             // Restriction des endpoints en fonction du rôle
             .authorizeHttpRequests {
