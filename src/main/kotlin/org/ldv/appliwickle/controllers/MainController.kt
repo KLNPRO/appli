@@ -14,11 +14,10 @@ class MainController (
     @GetMapping("/wickle")
     fun home(): String {
         return "index"
-
     }
+
     @GetMapping("/wickle/profil")
     fun profile(authentication: Authentication): String {
-
         // Récupération des rôles (authorities) de l'utilisateur connecté
         val roles = authentication.authorities.map { it.authority }
 
@@ -36,6 +35,7 @@ class MainController (
         model.addAttribute("error", error == true)
         return "pageVisiteur/connexion"
     }
+
     @GetMapping("/wickle/a-propos")
     fun aPropos(): String {
         return "pageVisiteur/a-propos"
@@ -46,22 +46,12 @@ class MainController (
         return "pageVisiteur/contact"
     }
 
-
     /**
      * Page Inscription
      */
     @GetMapping("/wickle/inscription")
     fun inscription(): String {
         return "pageVisiteur/inscription"
-    }
-
-
-    /**
-     * Page Liste des produits
-     */
-    @GetMapping("/wickle/produits")
-    fun produits(): String {
-        return "pageVisiteur/produits"
     }
 
     /**
@@ -73,19 +63,11 @@ class MainController (
     }
 
     /**
-     * Page Panier
-     */
-    @GetMapping("/wickle/panier")
-    fun panier(): String {
-        return "pageVisiteur/panier"
-    }
-
-    /**
      * Page catégorie Homme
      */
     @GetMapping("/wickle/homme")
     fun homme(): String {
-        return "pageVisiteur/homme"  // Réutilise la page produits
+        return "pageVisiteur/homme"
     }
 
     /**
@@ -113,6 +95,7 @@ class MainController (
     fun recherche(): String {
         return "pageVisiteur/recherche"
     }
+
     // === PAGES DU FOOTER ===
 
     @GetMapping("/wickle/faq")
@@ -141,12 +124,9 @@ class MainController (
     }
 
     @GetMapping("/wickle/produitrecherche")
-    fun produitrecherche(@RequestParam nomRechercher:String,model: Model): String {
-        var lesProduits = produitDAO.findAllByNomIgnoreCaseContaining(nomRechercher)
-        model.addAttribute(
-            "produits",
-            lesProduits
-        )
+    fun produitrecherche(@RequestParam nomRechercher:String, model: Model): String {
+        val lesProduits = produitDAO.findAllByNomIgnoreCaseContaining(nomRechercher)
+        model.addAttribute("produits", lesProduits)
         return "pageVisiteur/produitrecherche"
     }
 }

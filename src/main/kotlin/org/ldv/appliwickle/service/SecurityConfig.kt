@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
+
 @Configuration
 @EnableWebSecurity
 class SecurityConfig {
@@ -18,29 +19,28 @@ class SecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
-
-
             // Restriction des endpoints en fonction du rôle
             .authorizeHttpRequests {
-                // Pages publiques accessibles à tous
+                // Pages publiques accessibles à tous (visiteurs)
                 it.requestMatchers(
                     "/wickle",
                     "/wickle/connexion",
                     "/wickle/inscription",
                     "/wickle/a-propos",
                     "/wickle/contact",
-                    "/wickle/produits",
                     "/wickle/homme",
                     "/wickle/femme",
                     "/wickle/enfant",
                     "/wickle/comment-ca-marche",
                     "/wickle/recherche",
+                    "/wickle/produitrecherche",
                     "/wickle/faq",
                     "/wickle/livraison",
                     "/wickle/retours",
                     "/wickle/cgv",
                     "/wickle/mentions-legales",
                     "/wickle/rgpd",
+                    "/wickle/visiteur/**",  // Tous les endpoints visiteurs
                     "/css/**",
                     "/js/**",
                     "/img/**",
