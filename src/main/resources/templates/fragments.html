@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+
+<!-- ==================== HEADER FRAGMENT ==================== -->
+<!-- ==================== HEADER FRAGMENT ==================== -->
+<div th:fragment="header">
+    <header class="header-wickle">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" th:href="@{/wickle}">
+                    <img th:src="@{/img/logo.png}" alt="Logo Wickle" class="me-2"
+                         style="background: transparent;">
+                </a>
+
+                <!-- Bouton mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" style="border: 1px solid white;">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/homme}">Homme</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/femme}">Femme</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/enfant}">Enfant</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/wickle/produits}">Tous les produits</a></li>
+
+                        <!-- Lien Admin (visible seulement pour les ADMIN) -->
+                        <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                            <a class="nav-link" th:href="@{/wickle/admin}">⚙️ Admin</a>
+                        </li>
+                    </ul>
+
+                    <!-- Icons -->
+                    <div class="d-flex gap-2">
+                        <button class="btn-icon" title="Favoris" aria-label="Favoris">❤️</button>
+                        <button class="btn-icon" title="Panier" aria-label="Panier"
+                                onclick="window.location.href='/wickle/panier'">🛒</button>
+
+                        <!-- Bouton connexion (visible si NON connecté) -->
+                        <button sec:authorize="!isAuthenticated()" class="btn-icon"
+                                title="Mon compte" aria-label="Mon compte"
+                                onclick="window.location.href='/wickle/connexion'">👤</button>
+
+                        <!-- Bouton profil (visible si connecté) -->
+                        <button sec:authorize="isAuthenticated()" class="btn-icon"
+                                title="Mon profil" aria-label="Mon profil"
+                                onclick="window.location.href='/wickle/profil'">👤</button>
+
+                        <!-- Bouton déconnexion (visible si connecté) -->
+                        <form sec:authorize="isAuthenticated()"
+                              th:action="@{/wickle/logout}" method="post" class="d-inline">
+                            <button type="submit" class="btn-icon"
+                                    title="Déconnexion" aria-label="Déconnexion">🚪</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="container py-3">
+            <form class="search-wickle mx-auto" style="max-width: 600px;"
+                  th:action="@{/wickle/produitrecherche}" method="get">
+                <input type="text" name="nomRechercher" class="form-control border-0"
+                       placeholder="Rechercher un produit..." required>
+                <button type="submit" aria-label="Rechercher">🔍</button>
+            </form>
+        </div>
+    </header>
+</div>
+
+<!-- ==================== FOOTER FRAGMENT ==================== -->
+<div th:fragment="footer">
+    <footer class="footer-wickle">
+        <div class="container">
+            <div class="row">
+                <!-- À propos -->
+                <div class="col-md-3 mb-4">
+                    <h5>À propos</h5>
+                    <a th:href="@{/wickle/a-propos}">Notre mission</a>
+                    <a th:href="@{/wickle/comment-ca-marche}">Comment ça marche</a>
+                    <a th:href="@{/wickle/contact}">Contact</a>
+                </div>
+
+                <!-- Aide -->
+                <div class="col-md-3 mb-4">
+                    <h5>Aide</h5>
+                    <a th:href="@{/wickle/faq}">FAQ</a>
+                    <a th:href="@{/wickle/livraison}">Livraison</a>
+                    <a th:href="@{/wickle/retours}">Retours</a>
+                </div>
+
+                <!-- Légal -->
+                <div class="col-md-3 mb-4">
+                    <h5>Légal</h5>
+                    <a th:href="@{/wickle/cgv}">CGV</a>
+                    <a th:href="@{/wickle/rgpd}">RGPD</a>
+                    <a th:href="@{/wickle/mentions-legales}">Mentions légales</a>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-md-3 mb-4">
+                    <h5>Newsletter</h5>
+                    <p style="color: #d1d5db;">Recevez nos offres exclusives</p>
+                    <form class="mt-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
+                            <button class="btn btn-warning" type="submit">OK</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="mb-2">&copy; 2024 Wickle - Mode durable et accessible</p>
+                <p class="small mb-0">
+                    <a th:href="@{/wickle}" style="color: #9ca3af; display: inline; margin-right: 15px;">Accueil</a>
+                    <a th:href="@{/wickle/a-propos}" style="color: #9ca3af; display: inline; margin-right: 15px;">À propos</a>
+                    <a th:href="@{/wickle/contact}" style="color: #9ca3af; display: inline;">Contact</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="py-4">
+        <!-- Header de recherche -->
+        <div class="mb-4">
+            <h1 class="mb-2">🔍 Résultats de recherche</h1>
+            <p class="text-muted">
+                Recherche pour : <strong>"jean levi's"</strong>
+            </p>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <form class="d-flex gap-2" th:action="@{/wickle/recherche}" method="get">
+                    <input type="text" name="q" class="form-control form-control-lg"
+                           placeholder="Rechercher un produit, une marque..."
+                           value="jean levi's">
+                    <button type="submit" class="btn btn-primary btn-lg px-4">
+                        Rechercher
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Filtres sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="card sticky-top" style="top: 100px;">
+                    <div class="card-body">
+                        <h5 class="mb-3">Filtres</h5>
+
+                        <!-- Catégorie -->
+                        <div class="mb-4">
+                            <h6 class="mb-2">Catégorie</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="homme" checked>
+                                <label class="form-check-label" for="homme">
+                                    Homme <span class="text-muted">(24)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="femme">
+                                <label class="form-check-label" for="femme">
+                                    Femme <span class="text-muted">(18)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="enfant">
+                                <label class="form-check-label" for="enfant">
+                                    Enfant <span class="text-muted">(5)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Taille -->
+                        <div class="mb-4">
+                            <h6 class="mb-2">Taille</h6>
+                            <select class="form-select form-select-sm">
+                                <option selected>Toutes les tailles</option>
+                                <option>28</option>
+                                <option>30</option>
+                                <option>32</option>
+                                <option>34</option>
+                                <option>36</option>
+                            </select>
+                        </div>
+
+                        <!-- Prix -->
+                        <div class="mb-4">
+                            <h6 class="mb-2">Prix</h6>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <input type="number" class="form-control form-control-sm"
+                                           placeholder="Min">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control form-control-sm"
+                                           placeholder="Max">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- État -->
+                        <div class="mb-4">
+                            <h6 class="mb-2">État</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="neuf">
+                                <label class="form-check-label" for="neuf">
+                                    Comme neuf
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="excellent">
+                                <label class="form-check-label" for="excellent">
+                                    Excellent état
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="tresBon">
+                                <label class="form-check-label" for="tresBon">
+                                    Très bon état
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bon">
+                                <label class="form-check-label" for="bon">
+                                    Bon état
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Marque -->
+                        <div class="mb-4">
+                            <h6 class="mb-2">Marque</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="levis" checked>
+                                <label class="form-check-label" for="levis">
+                                    Levi's <span class="text-muted">(47)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="wrangler">
+                                <label class="form-check-label" for="wrangler">
+                                    Wrangler <span class="text-muted">(12)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="lee">
+                                <label class="form-check-label" for="lee">
+                                    Lee <span class="text-muted">(8)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline-secondary w-100 mb-2">
+                            Appliquer les filtres
+                        </button>
+                        <button class="btn btn-link w-100 text-danger text-decoration-none">
+                            Réinitialiser
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Résultats -->
+            <div class="col-lg-9">
+                <!-- Nombre de résultats et tri -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <p class="mb-0">
+                        <strong>47 résultats</strong> trouvés
+                    </p>
+                    <select class="form-select form-select-sm" style="max-width: 200px;">
+                        <option selected>Pertinence</option>
+                        <option>Prix croissant</option>
+                        <option>Prix décroissant</option>
+                        <option>Nouveautés</option>
+                    </select>
+                </div>
+
+                <!-- Grille de produits -->
+                <div class="row g-4 mb-4">
+                    <!-- Produit 1 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="position-relative">
+                                <div class="product-image">
+                                    <span style="font-size: 5rem;">👖</span>
+                                </div>
+                                <span class="badge bg-success position-absolute top-0 end-0 m-2">Nouveau</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 511 Slim Fit</h5>
+                                <p class="small text-muted mb-2">Taille 32 • Très bon état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">30€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">90€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 2 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <span style="font-size: 5rem;">👖</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 501 Original</h5>
+                                <p class="small text-muted mb-2">Taille 30 • Excellent état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">35€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">100€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 3 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="position-relative">
+                                <div class="product-image">
+                                    <span style="font-size: 5rem;">👖</span>
+                                </div>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">-70%</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 527 Bootcut</h5>
+                                <p class="small text-muted mb-2">Taille 34 • Bon état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">28€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">95€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 4 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <span style="font-size: 5rem;">👖</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Femme</p>
+                                <h5 class="product-name">Levi's 721 High Rise</h5>
+                                <p class="small text-muted mb-2">Taille 27 • Excellent état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">32€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">98€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 5 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <span style="font-size: 5rem;">👖</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 512 Tapered</h5>
+                                <p class="small text-muted mb-2">Taille 31 • Comme neuf</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">38€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">105€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 6 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="position-relative">
+                                <div class="product-image">
+                                    <span style="font-size: 5rem;">👖</span>
+                                </div>
+                                <span class="badge bg-warning position-absolute top-0 end-0 m-2">Top vente</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 502 Regular Taper</h5>
+                                <p class="small text-muted mb-2">Taille 32 • Très bon état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">33€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">92€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 7 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <span style="font-size: 5rem;">👖</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Femme</p>
+                                <h5 class="product-name">Levi's 311 Shaping</h5>
+                                <p class="small text-muted mb-2">Taille 28 • Excellent état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">29€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">88€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 8 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <span style="font-size: 5rem;">👖</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 514 Straight</h5>
+                                <p class="small text-muted mb-2">Taille 33 • Bon état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">27€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">85€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produit 9 -->
+                    <div class="col-6 col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <span style="font-size: 5rem;">👖</span>
+                            </div>
+                            <div class="p-3">
+                                <p class="product-category mb-1">Jean • Homme</p>
+                                <h5 class="product-name">Levi's 505 Regular</h5>
+                                <p class="small text-muted mb-2">Taille 34 • Très bon état</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark me-1">Denim</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="product-price">31€</span>
+                                        <span class="small text-muted text-decoration-line-through ms-1">93€</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">Précédent</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Suivant</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Recherches populaires -->
+        <div class="mt-5">
+            <h4 class="mb-3">Recherches populaires</h4>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="?q=jean" class="badge bg-light text-dark text-decoration-none py-2 px-3">jean</a>
+                <a href="?q=robe" class="badge bg-light text-dark text-decoration-none py-2 px-3">robe</a>
+                <a href="?q=nike" class="badge bg-light text-dark text-decoration-none py-2 px-3">nike</a>
+                <a href="?q=zara" class="badge bg-light text-dark text-decoration-none py-2 px-3">zara</a>
+                <a href="?q=pull" class="badge bg-light text-dark text-decoration-none py-2 px-3">pull</a>
+                <a href="?q=veste" class="badge bg-light text-dark text-decoration-none py-2 px-3">veste</a>
+                <a href="?q=t-shirt" class="badge bg-light text-dark text-decoration-none py-2 px-3">t-shirt</a>
+                <a href="?q=adidas" class="badge bg-light text-dark text-decoration-none py-2 px-3">adidas</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

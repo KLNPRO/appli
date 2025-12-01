@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="py-4">
+        <!-- Header -->
+        <div class="mb-4">
+            <h1 class="mb-2" th:text="${categorieSelectionnee != null ? categorieSelectionnee.nom : 'Tous les produits'}"></h1>
+            <p class="text-muted" th:text="${produits.size()} + ' articles disponibles'"></p>
+        </div>
+
+        <!-- Messages Flash -->
+        <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>✅</strong> <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <!-- Filtres -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label small">Catégorie</label>
+                        <select class="form-select" onchange="window.location.href='/wickle/visiteur/produits/categorie/' + this.value">
+                            <option value="">Toutes les catégories</option>
+                            <option th:each="cat : ${categories}"
+                                    th:value="${cat.id}"
+                                    th:text="${cat.nom}"
+                                    th:selected="${categorieSelectionnee != null && categorieSelectionnee.id == cat.id}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label small">Prix minimum (€)</label>
+                        <input type="number" class="form-control" placeholder="0">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label small">Prix maximum (€)</label>
+                        <input type="number" class="form-control" placeholder="1000">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grille de produits -->
+        <div class="row g-4 mb-4">
+            <div class="col-6 col-md-3" th:each="produit : ${produits}">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👕</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1" th:text="${produit.categorie.nom}"></p>
+                        <h5 class="product-name" th:text="${produit.nom}"></h5>
+                        <p class="small text-muted mb-2" th:text="${produit.description.substring(0, Math.min(50, produit.description.length()))} + '...'"></p>
+                        <div class="mb-2">
+                            <span class="badge bg-success" th:if="${produit.stock > 10}">En stock</span>
+                            <span class="badge bg-warning" th:if="${produit.stock <= 10 && produit.stock > 0}">Stock limité</span>
+                            <span class="badge bg-danger" th:if="${produit.stock == 0}">Rupture</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="product-price" th:text="${produit.prix} + '€'"></span>
+                            <a th:href="@{'/wickle/visiteur/produits/' + ${produit.id}}" class="btn btn-primary btn-sm">Voir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12" th:if="${#lists.isEmpty(produits)}">
+
+                <div class="alert alert-info text-center">
+                    Aucun produit disponible pour le moment
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination (à implémenter plus tard) -->
+        <nav class="mt-5" th:if="${produits.size() > 12}">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Précédent</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+</html>
