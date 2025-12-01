@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="py-5">
+        <h1 class="text-primary mb-5 text-center">Questions Fréquentes</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <!-- Section: Commandes -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">📦 Commandes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h5 class="text-primary">Comment passer une commande ?</h5>
+                            <p class="text-muted">
+                                Parcourez nos produits, ajoutez vos articles préférés au panier,
+                                puis cliquez sur le panier pour finaliser votre achat. Vous devrez
+                                créer un compte ou vous connecter pour valider votre commande.
+                            </p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="text-primary">Puis-je modifier ma commande après l'avoir passée ?</h5>
+                            <p class="text-muted">
+                                Vous pouvez modifier votre commande dans les 30 minutes suivant sa
+                                validation. Contactez-nous rapidement via la page contact.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-primary">Comment suivre ma commande ?</h5>
+                            <p class="text-muted">
+                                Une fois votre commande expédiée, vous recevrez un email avec un
+                                numéro de suivi. Vous pouvez également suivre l'état de votre commande
+                                depuis votre compte personnel.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Paiement -->
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="mb-0">💳 Paiement</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h5 class="text-primary">Quels moyens de paiement acceptez-vous ?</h5>
+                            <p class="text-muted">
+                                Nous acceptons les cartes bancaires (Visa, Mastercard, American Express),
+                                PayPal, et le paiement en 3x sans frais à partir de 50€.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-primary">Mes données de paiement sont-elles sécurisées ?</h5>
+                            <p class="text-muted">
+                                Oui, toutes les transactions sont cryptées et sécurisées. Nous n'enregistrons
+                                aucune information bancaire sur nos serveurs. Les paiements sont traités par
+                                des prestataires certifiés PCI-DSS.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Livraison -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">🚚 Livraison</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h5 class="text-primary">Quels sont les délais de livraison ?</h5>
+                            <p class="text-muted">
+                                Les commandes sont expédiées sous 24-48h. La livraison standard prend
+                                3-5 jours ouvrés. Une option express (24h) est également disponible.
+                            </p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="text-primary">Quels sont les frais de livraison ?</h5>
+                            <p class="text-muted">
+                                • Livraison standard : 4,90€<br>
+                                • Livraison express (24h) : 9,90€<br>
+                                • Gratuite dès 50€ d'achat
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-primary">Livrez-vous à l'international ?</h5>
+                            <p class="text-muted">
+                                Actuellement, nous livrons uniquement en France métropolitaine et en Corse.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Retours -->
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="mb-0">🔄 Retours et Échanges</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h5 class="text-primary">Quelle est votre politique de retour ?</h5>
+                            <p class="text-muted">
+                                Vous disposez de 14 jours pour retourner un article non porté et dans
+                                son emballage d'origine. Les frais de retour sont à votre charge.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-primary">Comment effectuer un retour ?</h5>
+                            <p class="text-muted">
+                                Contactez notre service client depuis votre espace personnel pour obtenir
+                                une étiquette de retour. Renvoyez l'article et vous serez remboursé sous
+                                5-7 jours ouvrés après réception.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Produits -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">👕 Produits</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h5 class="text-primary">Les vêtements sont-ils vraiment en bon état ?</h5>
+                            <p class="text-muted">
+                                Tous nos articles sont soigneusement sélectionnés et inspectés. Nous ne
+                                vendons que des vêtements de seconde main en excellent état, lavés et prêts
+                                à porter.
+                            </p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="text-primary">Comment choisir la bonne taille ?</h5>
+                            <p class="text-muted">
+                                Consultez notre guide des tailles disponible sur chaque fiche produit.
+                                Les mesures exactes sont indiquées pour chaque article.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-primary">Proposez-vous des produits neufs ?</h5>
+                            <p class="text-muted">
+                                Non, Wickle est spécialisé dans la mode de seconde main durable. Tous nos
+                                articles ont déjà été portés mais sont en excellent état.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="text-center mt-5 p-5 bg-light rounded">
+                    <h4 class="mb-3">Vous ne trouvez pas la réponse à votre question ?</h4>
+                    <p class="text-muted mb-4">Notre équipe est là pour vous aider !</p>
+                    <a th:href="@{/wickle/contact}" class="btn btn-primary btn-lg">
+                        Contactez-nous
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="mb-0">👁️ Détail de la catégorie</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <nav aria-label="breadcrumb" class="mb-4">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a th:href="@{/wickle/admin}">Admin</a></li>
+                                <li class="breadcrumb-item"><a th:href="@{/wickle/admin/categories}">Catégories</a></li>
+                                <li class="breadcrumb-item active" th:text="${categorie.nom}"></li>
+                            </ol>
+                        </nav>
+
+                        <dl class="row">
+                            <dt class="col-sm-3">ID</dt>
+                            <dd class="col-sm-9" th:text="${categorie.id}"></dd>
+
+                            <dt class="col-sm-3">Nom</dt>
+                            <dd class="col-sm-9"><strong th:text="${categorie.nom}"></strong></dd>
+
+                            <dt class="col-sm-3">Description</dt>
+                            <dd class="col-sm-9" th:text="${categorie.description} ?: 'Aucune description'"></dd>
+
+                            <dt class="col-sm-3">Nombre de produits</dt>
+                            <dd class="col-sm-9">
+                                <span class="badge bg-primary" th:text="${categorie.produits.size()}"></span>
+                            </dd>
+                        </dl>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <a th:href="@{'/wickle/admin/categories/edit/' + ${categorie.id}}"
+                               class="btn btn-warning">✏️ Modifier</a>
+                            <a th:href="@{/wickle/admin/categories}" class="btn btn-secondary">↩️ Retour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

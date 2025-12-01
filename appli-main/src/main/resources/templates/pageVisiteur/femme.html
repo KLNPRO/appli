@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="py-4">
+        <!-- Header de catégorie -->
+        <div class="mb-4">
+            <h1 class="mb-2">👗 Mode Femme</h1>
+            <p class="text-muted">3,200+ articles de qualité pour femme</p>
+        </div>
+
+        <!-- Filtres -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label small">Sous-catégorie</label>
+                        <select class="form-select">
+                            <option selected>Tous les articles</option>
+                            <option>Robes</option>
+                            <option>Tops & Blouses</option>
+                            <option>T-shirts</option>
+                            <option>Pulls & Gilets</option>
+                            <option>Vestes & Manteaux</option>
+                            <option>Pantalons</option>
+                            <option>Jeans</option>
+                            <option>Jupes</option>
+                            <option>Lingerie</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label small">Taille</label>
+                        <select class="form-select">
+                            <option selected>Toutes</option>
+                            <option>XS (34)</option>
+                            <option>S (36)</option>
+                            <option>M (38)</option>
+                            <option>L (40)</option>
+                            <option>XL (42)</option>
+                            <option>XXL (44)</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label small">Marque</label>
+                        <select class="form-select">
+                            <option selected>Toutes</option>
+                            <option>Zara</option>
+                            <option>H&M</option>
+                            <option>Mango</option>
+                            <option>Sandro</option>
+                            <option>Comptoir des Cotonniers</option>
+                            <option>Massimo Dutti</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label small">Prix max</label>
+                        <input type="number" class="form-control" placeholder="50€">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label small">Trier par</label>
+                        <select class="form-select">
+                            <option selected>Nouveautés</option>
+                            <option>Prix croissant</option>
+                            <option>Prix décroissant</option>
+                            <option>Popularité</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nombre de résultats -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="mb-0 text-muted">
+                <strong>3,214 articles</strong> disponibles
+            </p>
+            <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-outline-primary active">
+                    <i>⊞</i> Grille
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                    <i>☰</i> Liste
+                </button>
+            </div>
+        </div>
+
+        <!-- Grille de produits -->
+        <div class="row g-4 mb-4">
+            <!-- Produit 1 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <span style="font-size: 5rem;">👗</span>
+                        </div>
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Nouveau</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Robe</p>
+                        <h5 class="product-name">Robe Zara Fleurie</h5>
+                        <p class="small text-muted mb-2">Taille S • Excellent état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Viscose</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">25€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">60€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👚</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Blouse</p>
+                        <h5 class="product-name">Blouse Mango Soie</h5>
+                        <p class="small text-muted mb-2">Taille M • Comme neuf</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Soie</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">18€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">45€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <span style="font-size: 5rem;">👖</span>
+                        </div>
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">-70%</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Jean</p>
+                        <h5 class="product-name">Jean Levi's 721 High Rise</h5>
+                        <p class="small text-muted mb-2">Taille 27 • Très bon état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Denim</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">28€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">95€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 4 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">🧥</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Veste</p>
+                        <h5 class="product-name">Blazer Sandro Noir</h5>
+                        <p class="small text-muted mb-2">Taille S • Excellent état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Polyester</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">65€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">195€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 5 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">🧶</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Pull</p>
+                        <h5 class="product-name">Pull Cachemire Uniqlo</h5>
+                        <p class="small text-muted mb-2">Taille M • Bon état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Cachemire</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">35€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">89€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 6 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <span style="font-size: 5rem;">💃</span>
+                        </div>
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Nouveau</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Jupe</p>
+                        <h5 class="product-name">Jupe Plissée H&M</h5>
+                        <p class="small text-muted mb-2">Taille S • Excellent état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Polyester</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">15€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">40€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 7 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👕</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">T-shirt</p>
+                        <h5 class="product-name">T-shirt Basic Zara</h5>
+                        <p class="small text-muted mb-2">Taille M • Très bon état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Coton</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">8€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">20€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 8 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">🧥</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Manteau</p>
+                        <h5 class="product-name">Trench Burberry</h5>
+                        <p class="small text-muted mb-2">Taille M • Excellent état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Coton</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">250€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">890€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 9 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👠</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Chaussures</p>
+                        <h5 class="product-name">Escarpins Noirs Zara</h5>
+                        <p class="small text-muted mb-2">Taille 38 • Bon état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Cuir</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">22€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">55€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 10 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">👜</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Sac</p>
+                        <h5 class="product-name">Sac Michael Kors</h5>
+                        <p class="small text-muted mb-2">Unique • Excellent état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Cuir</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">45€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">180€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 11 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 5rem;">🩱</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Maillot</p>
+                        <h5 class="product-name">Maillot de Bain Calzedonia</h5>
+                        <p class="small text-muted mb-2">Taille M • Neuf avec étiquette</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Lycra</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">20€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">45€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 12 -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <span style="font-size: 5rem;">🧣</span>
+                        </div>
+                        <span class="badge bg-warning position-absolute top-0 end-0 m-2">Top vente</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="product-category mb-1">Accessoire</p>
+                        <h5 class="product-name">Écharpe Hermès</h5>
+                        <p class="small text-muted mb-2">Unique • Excellent état</p>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark me-1">Soie</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="product-price">150€</span>
+                                <span class="small text-muted text-decoration-line-through ms-1">450€</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Précédent</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+</html>
